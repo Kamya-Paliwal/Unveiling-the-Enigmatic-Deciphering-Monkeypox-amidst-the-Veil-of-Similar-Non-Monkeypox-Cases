@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Healthbridge Hospital - Monkeypox Detection</title>
+    <style>
+        body {
+            background-color: #fff8dc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            margin-left: 20px;
+            color: #f0db4f;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #f0db4f;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: -10px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            height: auto;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            margin-top: 40px; 
+        }
+
+        .img-cont{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        margin-top: 80px;
+        }
+        
+        
+        .image-container img {
+            width: 40%;
+            height: 80%
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .writeup {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-left: 20px;
+        }
+
+        .prediction-box {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 50%;
+        }
+
+        .prediction-box h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .prediction-box img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            height: auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 300px;
+            margin-left: -100px;
+        }
+
+        .logo-text {
+            color: black;
+            margin-left: 20px;
+            font-size: 29px;
+            margin-top: auto;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo-container">
+            <img class="logo" src="https://media.istockphoto.com/id/1181534622/vector/caduceus-design.jpg?s=612x612&w=0&k=20&c=PGhkfYrH7GkS-yLerNa5IluJfENyA2e_k90PtnFbO5w=" alt="Logo">
+            <h1 class="logo-text">Healthbridge</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/predict">Predict</a>
+                <a href="/about">About Model</a>
+                <a href="/contact">Contact</a>
+            </ul>
+        </nav>
+    </header>
+</div>
+<h1>Welcome to HealthBridge</h1>
+<p>You can now predict MPox at the comfort of your Home. All you need to do is enter the image of the Infected area in the box below.</p>
+<div class="image-container">
+    <div class="writeup">
+        <h2>Symptoms followed by MPox</h2>
+        
+        <ul>
+            <li>Fever: Monkeypox typically starts with a high fever, which is usually followed by other symptoms.</li>
+            <li>Rash: A rash usually develops within a few days of the onset of fever. The rash starts on the face and then spreads to other parts of the body. The rash progresses through different stages, including raised bumps, fluid-filled blisters, and scabs.</li>
+            <li>Fatigue: Feeling tired and lethargic is a common symptom of monkeypox.</li>
+            <li>Headache: Many individuals with monkeypox experience headaches, which can range from mild to severe.</li>
+            <li>Muscle aches: Muscle aches and pains are often present, making movements uncomfortable.</li>
+            <li>Swollen lymph nodes: The lymph nodes may become swollen and tender, particularly in the area near the rash.</li>
+            <li>Chills and sweats: Affected individuals may experience episodes of chills and excessive sweating.</li>
+            <li>Sore throat: Some individuals may have a sore throat or feel discomfort while swallowing.</li>
+        <p>It's important to note that the severity of symptoms can vary from person to person. If you suspect you may have monkeypox or have been exposed to someone with the virus, it's crucial to seek medical attention for diagnosis and appropriate treatment.</p>    
+        </ul>
+    </div>
+    <img src="https://static.vecteezy.com/system/resources/previews/008/332/289/non_2x/monkeypox-virus-sign-and-symptoms-infographic-free-vector.jpg" alt="Precautionary Measures" />
+    
+</div>
+
+
+<div class="prediction-box">
+  <h1>Upload an Image</h1>
+  <form action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Predict">
+  </form>
+  {% if prediction %}
+  <p>Prediction: {{ prediction }}</p>
+  <img src="data:image/jpeg;base64,{{ image }}" />
+  {% endif %}
+</div>
+</body>
+</html>
+
+
+
+

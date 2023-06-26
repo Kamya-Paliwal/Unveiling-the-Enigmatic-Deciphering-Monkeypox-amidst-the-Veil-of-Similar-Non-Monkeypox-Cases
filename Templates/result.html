@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Healthbridge Hospital - Monkeypox Detection</title>
+    <style>
+        body {
+            background-color: #fff8dc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            margin-left: 20px;
+            color: #f0db4f;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #f0db4f;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: -10px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            height: auto;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            margin-top: 40px; 
+        }
+
+        .img-cont{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        margin-top: 80px;
+        }
+        
+        
+        .image-container img {
+            width: 40%;
+            height: 100%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .writeup {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-left: 20px;
+        }
+
+        .prediction-box {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 50%;
+        }
+
+        .prediction-box h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .prediction-box img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            height: auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 300px;
+            margin-left: -50px;
+        }
+
+        .logo-text {
+            color: black;
+            margin-left: 20px;
+            font-size: 29px;
+            margin-top: auto;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo-container">
+            <img class="logo" src="https://media.istockphoto.com/id/1181534622/vector/caduceus-design.jpg?s=612x612&w=0&k=20&c=PGhkfYrH7GkS-yLerNa5IluJfENyA2e_k90PtnFbO5w=" alt="Logo">
+            <h1 class="logo-text">Healthbridge</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/predict">Predict</a>
+                <a href="/about">About Model</a>
+                <a href="/contact">Contact</a>
+            </ul>
+        </nav>
+    </header>
+</div>
+<h1>Welcome to HealthBridge</h1>
+<p>Your Reports are Ready. Scroll down to see the results</p>
+<div class="image-container">
+    <div class="writeup">
+        <h2>When infected with MPox, it is important to follow certain precautionary measures to ensure safety.</h2>
+        
+        <ul>
+            <li>Practice good hygiene: Wash your hands frequently with soap and water for at least 20 seconds, especially after coming into contact with animals or animal products, before preparing food, and after using the restroom. If soap and water are not available, use an alcohol-based hand sanitizer.</li>
+            <li>Avoid contact with infected animals: Monkeypox can be transmitted to humans through direct contact with infected animals, such as rodents and monkeys. Avoid touching or handling live or dead animals that may be infected.</li>
+            <li>Use personal protective equipment (PPE): If you need to handle animals or their products, such as meat or animal tissues, use appropriate protective measures like gloves, masks, and goggles to minimize the risk of exposure.</li>
+            <li>Avoid consuming bushmeat: Refrain from eating meat from wild animals, as they may carry the monkeypox virus.</li>
+            <li>Follow respiratory hygiene: Cover your mouth and nose with a tissue or your elbow when coughing or sneezing. Dispose of used tissues properly and wash your hands immediately afterward.</li>
+            <p>Maintain distance from infected individuals: If you come into contact with someone who has monkeypox or exhibits symptoms, maintain a safe distance to minimize the risk of transmission.</p>
+        </ul>
+    </div>
+    <img src="https://img.freepik.com/premium-vector/monkeypox-virus-prevention-infographic-doctor-explain-how-prevent-from-monkey-pox-virus-outbreak_251139-682.jpg?w=2000" alt="Precautionary Measures" />
+    </div>
+
+
+<div class="prediction-box">
+  <h1>Prediction: {{ prediction }}</h1>
+  <img src="data:image/jpeg;base64,{{ image }}" />
+</div>
+</body>
+</html>
